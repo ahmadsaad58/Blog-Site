@@ -15,7 +15,7 @@ def get_db():
 	# TODO: use better DB
 	db = getattr(g, 'my_database', None)
 	if db is None:
-		db = g.my_database = shelve.open('posts.db')
+		db = g.my_database = shelve.open('posts')
 	return db
 
 # Teardown
@@ -36,6 +36,10 @@ def index():
 def debug():
 	# TODO: Link to static Page
 	return 'Help is on the way'
+
+# @app.errorhandler(404)
+# def not_found(exception):
+# 	return 'Page not Found'
 
 
 class Blog_List(Resource):
